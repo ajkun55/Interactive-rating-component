@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    font-family: "Overpass", sans-serif;
+    font-weight: var(--fw-l);
+    background-color: var(--clr-Very-Dark-Blue);
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+:root{
+  --clr-Orange: hsl(25, 97%, 53%);
+  --clr-White: hsl(0, 0%, 100%);
+  --clr-Light-Grey: hsl(217, 12%, 63%);
+  --clr-Medium-Grey: hsl(216, 12%, 54%);
+  --clr-Dark-Blue: hsl(213, 19%, 18%);
+  --clr-Very-Dark-Blue: hsl(216, 12%, 8%);
+
+  --fw-l:400;
+  --fw-b:700;
+}
+
+main{
+    height: 800px;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    background-color: transparent;
+    width: clamp(28.47%, 410px, 90%);
+    height: clamp(51.875%, 415px, 80%);
+    perspective: 1000px;
+  }
+  
+  .card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;    
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 2rem;  
+    background-color: var(--clr-Dark-Blue);
+    
+  }
+  
+  .rating_state, .thank_state {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;    
+  }
+  
+  .rating_state {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);    
+    padding:2.5rem;  visibility: visible;
+  }
+
+  h1{
+    color: var(--clr-White); 
+    font-weight: var(--fw-b); 
+  }
+
+  .value{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+  }
+
+  .rating_button{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--clr-Very-Dark-Blue);
+    color: var(--clr-White);
+    opacity: 0.5;
+    border: none;
+  }
+
+  .rating_button:focus, .rating_button:hover{
+    background-color: var(--clr-Orange) !important;
+    cursor: pointer;
+  }
+
+  .rating_state p{
+    color: var(--clr-Light-Grey);
+    padding-bottom: 2rem;
+  }
+
+  .submit_button{
+    background-color: var(--clr-Orange);
+    border-radius: 3rem;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: var(--clr-White);
+    height: 3rem;
+  }
+
+  .submit_button:hover, .submit_button:focus{
+    background-color: var(--clr-White);
+    color: var(--clr-Orange);    
+    cursor: pointer;
+  }
+  
+  .thank_state {
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    visibility: hidden;
+  }
+
+  .thank_state img{
+    width: 10rem;height: auto;
+    padding-top: 2.5rem;
+  }
+
+  .result{
+    color: var(--clr-Orange);
+    background-color: hsl(213, 19%, 25%);
+    height: 2rem;
+    border-radius: 3rem;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: clamp(60%,15rem,80%);
+  }
+
+  .result p{
+    color: var(--clr-Orange) ! important;    
+}
+
+  .thank_state h1{
+    margin: -1rem 0;
+  }
+
+  .thank_state p{
+    width: 80%;
+    color: var(--clr-Light-Grey);
+  }
+
+@media (width < 400px){
+    .rating_state{
+        padding: 0.7rem;
+    }
+    .rating_state img{
+        padding-top: 2rem;
+    }
+}
+
+ 
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
